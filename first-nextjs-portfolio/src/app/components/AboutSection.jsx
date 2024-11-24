@@ -10,11 +10,7 @@ const TAB_DATA = [
         title: "Skills",
         id: "skills",
         content: (
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>bootstrap</li>
-                <li>Tailwind</li>
+            <ul className="list-disc pl-2">
                 <li>JavaScript</li>
                 <li>React</li>
                 <li>Next.js</li>
@@ -35,7 +31,7 @@ const TAB_DATA = [
         title: "Education",
         id: "education",
         content: (
-            <ul>
+            <ul className="list-disc pl-2">
                 <li>Souther Methodist University, Full Stack Developer Boot Camp</li>
                 <li>University of Phoenix</li>
                 <li>California State University, Fullerton</li>
@@ -48,14 +44,14 @@ const TAB_DATA = [
         title: "Certifications",
         id: "certifications",
         content: (
-            <ul>
+            <ul className="list-disc pl-2">
                 <li>Full Stack Developer Certificate</li>
             </ul>
         )
     }
 ]
 
-const About = () => {
+const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
 
@@ -70,12 +66,13 @@ const About = () => {
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 xl:py-16">
         <Image
           src="/images/fullstackImage.png"
-          width={300}
-          height={50}
+          width={500}
+          height={200}
           alt="full stack"
+          style={{borderRadius: 10}}
         />
-        <div>
-          <h2 className="text-4xl font-bold text-white mb-4" id="about">
+        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
+          <h2 className="text-4xl font-bold text-white mb-4" id="about" >
             About Me
           </h2>
           <p className="text-base lg:text-lg">
@@ -112,4 +109,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutSection;
