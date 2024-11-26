@@ -23,7 +23,7 @@ const projectData = [
     image: "/images/portfolioNext.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/CJ237/Nextjs-Portfolio",
-    previewUrl: "https://course-tracker-r0tu.onrender.com/",
+    previewUrl: "https://nextjs-portfolio-lime-phi.vercel.app/",
   },
 ];
 const ProjectSection = () => {
