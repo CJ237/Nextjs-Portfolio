@@ -15,6 +15,16 @@ const projectData = [
     gitUrl: "https://github.com/CJ237/Online-Note-Sharing-App",
     previewUrl: "https://course-tracker-r0tu.onrender.com/",
   },
+  {
+    id: 2,
+    title: "Portfolio",
+    description:
+      "Portfolio in Next.js",
+    image: "/images/portfolioNext.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/CJ237/Nextjs-Portfolio",
+    previewUrl: "https://course-tracker-r0tu.onrender.com/",
+  },
 ];
 const ProjectSection = () => {
   const [tag, setTag] = useState("All");
