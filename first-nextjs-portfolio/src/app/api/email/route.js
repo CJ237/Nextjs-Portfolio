@@ -6,14 +6,6 @@ export async function POST(request) {
 
   const transport = nodemailer.createTransport({
     service: "gmail",
-    /* 
-      Setting service as 'gmail' is equivalent to providing these settings:
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true
-      For other email providers, configure these settings manually.
-      Reference: https://github.com/nodemailer/nodemailer/blob/master/lib/well-known/services.json
-    */
     auth: {
       user: process.env.MY_EMAIL,
       pass: process.env.MY_PASSWORD,
@@ -28,21 +20,12 @@ export async function POST(request) {
     text: message,
   };
 
-  const sendMailPromise = () =>
-    new Promise((resolve, reject) => {
-      transport.sendMail(mailOptions, function (err) {
-        if (!err) {
-          resolve("Email sent");
-        } else {
-          reject(err.message);
-        }
-      });
-    });
-
   try {
-    await sendMailPromise();
-    return NextResponse.json({ message: "Email sent" });
+    // Use the built-in promise-based function
+    await transport.sendMail(mailOptions);
+    return NextResponse.json({ message: "Email sent successfully" });
   } catch (err) {
-    return NextResponse.json({ error: err }, { status: 500 });
+    console.error("Failed to send email:", err);
+    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }

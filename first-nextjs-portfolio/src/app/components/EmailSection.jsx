@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,6 +8,8 @@ import { sendEmail } from "../../../utils/sendEmail";
 
 
 const EmailSection = () => {
+    const [emailSubmitted, setEmailSubmitted ] = useState(false);
+
     const { register, handleSubmit, reset} = useForm();
     const FormData = {
         name: "",
@@ -18,12 +20,14 @@ const EmailSection = () => {
 
     function onSubmit(data) {
         sendEmail(data);
+        setEmailSubmitted(true);
         reset();
+
     }
 
     return (
-        <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
-            <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-teal-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-full -left-4 transform -translate-x-1/2 -translate-y-1/2">
+        <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative" id="contact">
+            <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-full -left-4 transform -translate-x-1/2 -translate-y-1/2">
 
             </div>
             <div className="z-10">
@@ -47,7 +51,7 @@ const EmailSection = () => {
                             height={50}
                         />
                     </Link>
-                    <Link href="https://githuwww.linkedin.com/in/c-j-thompson-7451b8214b.com/CJ237">
+                    <Link href="https://www.linkedin.com/in/c-j-thompson-7451b8214">
                         <Image
                             src={"/images/linkedin.png"}
                             alt="github"
@@ -67,11 +71,11 @@ const EmailSection = () => {
                         Your Name
                     </label>
                     <input
-                        
+                        id="name"
                         type="text"
-                        id="email"
                         required
                         className="bg-[#18191E] border w-full border-[#33343F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block p-2.5 "
+                        
                         placeholder="Enter your name..."
                         {...register('name', { required: true })}
                     />
@@ -90,6 +94,7 @@ const EmailSection = () => {
                         id="email"
                         required
                         className="bg-[#18191E] border w-full border-[#33343F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block p-2.5 "
+                        
                         placeholder="email@email.com"
                         {...register('email', { required: true })}
                     />
@@ -128,10 +133,15 @@ const EmailSection = () => {
                 </div>
                 <button
                     type="submit"
-                    className="w-full px-6 py-3 text-white bg-gradient-to-br from-sky-50 via-slate-500 to-teal-500 rounded-md hover:bg-white hover:text-slate-800"
+                    className="w-full px-6 py-3 text-white bg-gradient-to-br from-primary-500 to-secondary-500 rounded-md hover:bg-white hover:text-slate-800"
                 >
                     Send Message
                 </button>
+                {
+                    emailSubmitted && (
+                        <p className="text-green-500 text-sm mt-2">Email sent successfully!</p>
+                    )
+                }
             </form>
         </section>
     );

@@ -1,23 +1,15 @@
-export function sendEmail(data) {
-    const apiEndpoint = "/api/email"; // Your backend API endpoint
+import axios from "axios";
 
-    fetch(apiEndpoint, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json", // Specify JSON format
-        },
-        body: JSON.stringify(data), // Send the data as JSON
-    })
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error("Failed to send email");
-            }
-            return res.json();
-        })
+export function sendEmail(data) {
+    const apiEndpoint = "/api/email";
+
+    axios
+        .post(apiEndpoint, data) // Axios automatically stringifies `data` for you
         .then((response) => {
-            alert(response.message); // Show success message
+            console.log(response.data.message); // Handle the success message from the API
         })
-        .catch((err) => {
-            alert(`Error: ${err.message}`); // Show error message
+        .catch((error) => {
+            console.error("Error sending email:", error.response?.data || error.message);
+            console.log("Failed to send the message. Please try again.");
         });
 }

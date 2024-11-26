@@ -62,14 +62,14 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white mt-10">
+    <section className="text-white mt-10 mb-10">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16 xl:py-16">
         <Image
           src="/images/fullstackImage.png"
           width={500}
           height={200}
           alt="full stack"
-          style={{borderRadius: 10}}
+          className="rounded-xl "
         />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4" id="about" >
