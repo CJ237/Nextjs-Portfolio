@@ -34,10 +34,19 @@ const projectData = [
     tag: ["All", "Web"],
     gitUrl: "https://github.com/weather",
     previewUrl: "https://weatherapp562.netlify.app",
-    
-
+  },
+  {
+    id: 4,
+    title: "Jate",
+    description:
+      "Just Another Text Editor",
+    image: "/images/JATE.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/pwaJATE19",
+    previewUrl: "https://pwajate19.onrender.com/",
   },
 ];
+
 const ProjectSection = () => {
   const [tag, setTag] = useState("All");
   const ref = useRef(null);
