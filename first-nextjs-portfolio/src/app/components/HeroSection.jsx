@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   const handleDownload = () => {
-    const pdfUrl = "/Resume.pdf"; // Path to the PDF in the public folder
+    const pdfUrl = "/ResumeUpdate.pdf"; // Path to the PDF in the public folder
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.download = "resume.pdf"; // Default filename for the download
