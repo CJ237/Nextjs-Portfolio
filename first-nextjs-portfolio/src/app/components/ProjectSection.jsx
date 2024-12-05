@@ -22,8 +22,8 @@ const projectData = [
       "Portfolio in Next.js",
     image: "/images/portfolioNext.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/CJ237/Weather",
-    previewUrl: "https://weatherapp562.netlify.app",
+    gitUrl: "https://github.com/CJ237/Nextjs-Portfolio",
+    previewUrl: "https://nextjs-portfolio-lime-phi.vercel.app/",
   },
   {
     id: 3,
@@ -32,8 +32,10 @@ const projectData = [
       "The weather forecast",
     image: "/images/Weather.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/CJ237/Nextjs-Portfolio",
-    previewUrl: "",
+    gitUrl: "https://github.com/weather",
+    previewUrl: "https://weatherapp562.netlify.app",
+    
+
   },
 ];
 const ProjectSection = () => {
